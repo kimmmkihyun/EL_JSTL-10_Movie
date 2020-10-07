@@ -1,0 +1,36 @@
+drop sequence mv_seq;
+create sequence mv_seq
+	increment by 1
+	start with 1 
+	minvalue 1
+	maxvalue 10000
+	nocache;
+	
+drop table movie;
+create table movie(
+	num number primary key,
+	id varchar2(10) not null,
+	name varchar2(10) not null,
+	age number not null,
+	genre varchar2(40),
+	time varchar2(20),
+	partner number default 1,
+	memo varchar2(50)
+);
+
+
+insert into movie(num,id,name,age,genre,time,partner,memo)
+values(mv_seq.nextval,'m1','±Ë±Êµø',30,'¥Ÿ≈•','10~12',2,'¡¬ºÆ¿ª ≥–«Ù¡÷ººø‰.');
+
+commit;
+col num for 99
+col id for a5
+col name for a8
+col age for 999
+col genre for a16
+col time for a10
+col partner for 99
+col memo for a30
+
+select * from movie;
+
